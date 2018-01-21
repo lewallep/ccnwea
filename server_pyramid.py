@@ -9,18 +9,23 @@ import sqlite3
 
 def post(request):
 	print("the post endpoint has been called with POST!!!.")
-	#c = sqlite3.connect('blog.db').cursor()
-	#title, body = ""
+	conn = sqlite3.connect('blog.db')
+	c = conn.cursor()
+
 	resp = request.get_response
 	print(resp)
 	body = request.body
 	print(body)
 	json = request.json_body
 	print(json)
+	titleIn = json["title"]
+	bodyIn = json["body"]
+	print("title " + titleIn)
+	print("body" + bodyIn)
 
-	#c.execute("INSERT INTO posts (title, body) VALUES (?, ?)")
-	#c.commit()
-	#c.close()
+	c.execute("INSERT INTO posts (title, body) VALUES (?, ?)", (titleIn, bodyIn,))
+	conn.commit()
+	conn.close()
 	return Response("Placeholder Response")
 
 def posts(request):

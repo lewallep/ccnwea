@@ -11,10 +11,15 @@ def postOne():
 	print(req.status_code)
 	print(req.text)
 
+#Deletes all of the entries from the table.
 def clearTable():
 	print("clearTable() has been called")
-
+	conn = sqlite3.connect('blog.db')
+	c = conn.cursor()
+	c.execute("DELETE FROM posts")
+	conn.close()
 
 if __name__ == '__main__':
 	postOne()
+	clearTable()
 	print("end of program.")
