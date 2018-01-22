@@ -19,9 +19,7 @@ The Ansible file would do the following
   * pip3 Install requests
   * pip3 Install pyramid.
   * pip3 Install sqlite3
-* Start the application
-
-
+* Start the application by running *python3 pyramid_server.py*
 
 ### Different approaches on deployment process based on existing infrastructure
 
