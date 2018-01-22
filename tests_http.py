@@ -21,5 +21,5 @@ def clearTable():
 
 if __name__ == '__main__':
 	postOne()
-	clearTable()
+	#clearTable()
 	print("end of program.")
